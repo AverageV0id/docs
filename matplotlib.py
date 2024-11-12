@@ -19,3 +19,23 @@ def get_data(file):
 
 
 print(get_data('dots.txt'))
+
+def plot_dots(names, global_dots):
+    for i, dots in enumerate(global_dots):
+        x = dots[::2]
+        y = dots[1::2]
+        plt.scatter(x, y, label=names[i])
+
+    plt.plot(x, y)
+    plt.title("График точек")
+    plt.xlabel('X')
+    plt.ylabel('Y')
+    plt.legend()
+    plt.xlim(-10, 10)
+    plt.ylim(-10, 10)
+    plt.grid()
+    plt.show()
+
+
+names, dots = get_data('newfile.txt')
+plot_dots(names, dots)
